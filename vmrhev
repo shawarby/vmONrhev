@@ -1,0 +1,14 @@
+- hosts: localhost
+  gather_facts: False
+  connection: local
+  vars:
+    
+    
+    
+  tasks:
+    - name: Creates a new Virtual Machine from template named 'rhel7_template'
+      ovirt_vm:
+        state: present
+        name: myvm
+        template: rhel72server
+        cluster: Default
