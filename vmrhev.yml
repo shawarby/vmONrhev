@@ -6,9 +6,33 @@
     
     
   tasks:
-    - name: Creates a new Virtual Machine from template named 'rhel7_template'
+#   - name: Creates a new Virtual Machine from template named 'rhel7_template'
+#     ovirt_vm:
+#       state: present
+#       name: myvm
+#       template: rhel72server
+#       cluster: Default
+    - name: Run VM with cloud init
       ovirt_vm:
-        state: present
-        name: myvm
+        name: rhel7
         template: rhel72server
         cluster: Default
+        memory: 1GiB
+        high_availability: true
+        high_availability_priority: 50  # Available from Ansible 2.5
+        cloud_init:
+          nic_boot_protocol: static
+          nic_ip_address: 10.34.60.86
+          nic_netmask: 255.255.252.0
+          nic_gateway: 10.34.63.254
+          nic_name: eth1
+          nic_on_boot: true
+          host_name: example.com
+#         custom_script: |
+#           write_files:
+#            - content: |
+#                Hello, world!
+#              path: /tmp/greeting.txt
+#              permissions: '0644'
+      user_name: root
+      root_password: redhat
