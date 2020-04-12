@@ -34,5 +34,5 @@
 #                Hello, world!
 #              path: /tmp/greeting.txt
 #              permissions: '0644'
-      user_name: root
-      root_password: redhat
+          user_name: root
+          root_password: redhat
