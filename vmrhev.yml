@@ -14,7 +14,7 @@
 #       cluster: Default
     - name: Run VM with cloud init
       ovirt_vm:
-        name: rhel7
+        name: testvm
         template: rhel72server
         cluster: Default
         memory: 2GiB
