@@ -14,18 +14,20 @@
 #       cluster: Default
     - name: Run VM with cloud init
       ovirt_vm:
-        name: testvm001
+        name: testvm003
         template: rhel72server
         cluster: Default
         memory: 2GiB
+        cpu_cores: 4
         clone: yes
+        state: running
         high_availability: true
         high_availability_priority: 50  # Available from Ansible 2.5
         cloud_init:
           nic_boot_protocol: static
-          nic_ip_address: 10.34.60.86
-          nic_netmask: 255.255.252.0
-          nic_gateway: 10.34.63.254
+          nic_ip_address: 10.10.10.100
+          nic_netmask: 255.255.255.0
+          nic_gateway: 10.10.10.1
           nic_name: eth1
           nic_on_boot: true
           host_name: example.com
